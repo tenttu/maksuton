@@ -1,4 +1,4 @@
-maksuton
+MaksutON
 ========
 
 Browser plugin to bypass paywalls on websites
