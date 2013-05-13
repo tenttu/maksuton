@@ -8,6 +8,13 @@ function checkForValidUrl(tabId, changeInfo, tab)
     
     if(changeInfo.status == "complete") chrome.cookies.remove({url:"http://kauppalehti.fi", name: "_hs_hist"});
   }
+  else if (tab.url.indexOf('http://ksml.fi') > -1 || tab.url.indexOf('http://www.ksml.fi') > -1)
+  {
+    chrome.pageAction.show(tabId);
+    
+//    chrome.tabs.executeScript(tabId,{code:"window.localStorage.setItem('ksml_history',{'articles':[]);"});
+    chrome.tabs.executeScript(tabId,{code:"window.localStorage.removeItem('ksml_history');"});
+  }
   else if((tab.url.indexOf('http://kauppalehti.fi') > -1 || tab.url.indexOf('http://www.kauppalehti.fi') > -1) && changeInfo.status == "loading")
   {
     chrome.pageAction.show(tabId);
