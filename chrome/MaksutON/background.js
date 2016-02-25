@@ -24,6 +24,11 @@ function checkForValidUrl(tabId, changeInfo, tab)
     else
     localStorage["store"] = "1";
   }
+  else if (tab.url.indexOf('http://savonsanomat.fi') > -1 || tab.url.indexOf('http://www.savonsanomat.fi') > -1)
+  {
+    chrome.pageAction.show(tabId);
+    chrome.tabs.executeScript(tabId,{code:"window.localStorage.removeItem('paywall_history');"});
+  }
 };
 
 // Listen for any changes to the URL of any tab.
