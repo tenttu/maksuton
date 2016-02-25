@@ -1,6 +1,6 @@
 {
   "name": "MaksutON",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Poistaa maksumuurit Helsingin Sanomien, Kauppalehden ja Keskisuomalaisen sivuilta.",
   "background": { "scripts": ["background.js"] },
   "page_action" :
