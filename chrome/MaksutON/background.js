@@ -4,7 +4,7 @@ function checkForValidUrl(tabId, changeInfo, tab)
   if (tab.url.indexOf('http://hs.fi') > -1 || tab.url.indexOf('http://www.hs.fi') > -1)
   {
     chrome.pageAction.show(tabId);
-    chrome.tabs.executeScript(tabId,{code:"window.localStorage.setItem('_hs_hist','');"});
+    chrome.tabs.executeScript(tabId,{code:"window.localStorage.setItem('_hs_hist','');window.localStorage.setItem('_hs_paywall_hits','');"});
     
     if(changeInfo.status == "complete") chrome.cookies.remove({url:"http://kauppalehti.fi", name: "_hs_hist"});
   }
