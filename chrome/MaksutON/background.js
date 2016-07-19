@@ -11,7 +11,7 @@ function checkForValidUrl(tabId, changeInfo, tab)
   else if (tab.url.indexOf('http://ksml.fi') > -1 || tab.url.indexOf('http://www.ksml.fi') > -1)
   {
     chrome.pageAction.show(tabId);
-    chrome.tabs.executeScript(tabId,{code:"window.localStorage.removeItem('ksml_history');"});
+    chrome.tabs.executeScript(tabId,{code:"window.localStorage.removeItem('paywall_history');"});
   }
   else if((tab.url.indexOf('http://kauppalehti.fi') > -1 || tab.url.indexOf('http://www.kauppalehti.fi') > -1) && changeInfo.status == "loading")
   {
@@ -23,6 +23,11 @@ function checkForValidUrl(tabId, changeInfo, tab)
     }
     else
     localStorage["store"] = "1";
+  }
+  else if (tab.url.indexOf('http://savonsanomat.fi') > -1 || tab.url.indexOf('http://www.savonsanomat.fi') > -1)
+  {
+    chrome.pageAction.show(tabId);
+    chrome.tabs.executeScript(tabId,{code:"window.localStorage.removeItem('paywall_history');"});
   }
 };
 
